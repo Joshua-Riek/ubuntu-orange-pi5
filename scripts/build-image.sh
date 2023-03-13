@@ -173,4 +173,5 @@ losetup -d "${loop}"
 
 echo -e "\nCompressing $(basename "${img}.xz")\n"
 xz -9 --extreme --force --keep --quiet --threads=0 "${img}"
+sha256sum "${img}.xz" | sed 's/..\/images\//*/' > "${img}.xz.sha" 
 rm -f "${img}"
